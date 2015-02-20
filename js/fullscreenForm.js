@@ -2,6 +2,10 @@
 
 	'use strict';
 
+	// Matrices of values
+
+
+	// Support
 	var support = { animations : Modernizr.cssanimations },
 		animEndEventNames = { 'WebkitAnimation' : 'webkitAnimationEnd', 'OAnimation' : 'oAnimationEnd', 'msAnimation' : 'MSAnimationEnd', 'animation' : 'animationend' },
 		// animation end event name
@@ -173,6 +177,12 @@
 		document.getElementById('q4').addEventListener('input', function() {
 			// Check if a condition is fullfiled before moving to the next field
 			document.querySelector('#volume').innerHTML = this.value;
+		});
+		// init range slider
+		document.getElementById('q4').addEventListener('change', function() {
+			// Check if a condition is fullfiled before moving to the next field
+			self.store.km = this.value;
+			self._calculateExpenses();
 		});
 
 		// navigation dots
@@ -477,115 +487,22 @@
 		var substrId = ev.target.id.substr(0, 2);
 		var fieldValue = ev.target.value;
 
-		// Check if the loop is not supposed to stop
-		// This is really heavy...
-		if (substrId === 'q2' && (fieldValue === 'viande' || fieldValue === 'lait')) {
-			this._showMessage('Vous ne pouvez pas rapporter ce genre de produit sur le sol français.');
-			return;
-		}
-		if (substrId === 'q2' && fieldValue === 'legumes') {
-			var quantity = document.getElementById('quantityHint');
-			quantity.innerHTML = '20Kg maximum pour cette catégorie';
-			this.store.type = 'fruits et légumes';
-		}
-		if (substrId === 'q2' && fieldValue === 'peche') {
-			var quantity = document.getElementById('quantityHint');
-			quantity.innerHTML = '5Kg maximum pour cette catégorie';
-			this.store.type = 'produits de pêche';
-		}
-		if (substrId === 'q2' && fieldValue === 'epices') {
-			var quantity = document.getElementById('quantityHint');
-			quantity.innerHTML = '2Kg maximum pour cette catégorie';
-			this.store.type = 'épices';
-		}
-
-		// Check if q3 passes
-		if (substrId === 'q3') {
-			if (this.store.q2 === 'legumes' && fieldValue > 20) {
-				this._showMessage('Vous ne pouvez pas rapporter plus de 20Kg de fruits et légumes sur le sol français.');
-				return;
-			}
-			if (this.store.q2 === 'peche' && fieldValue > 5) {
-				this._showMessage('Vous ne pouvez pas rapporter plus de 5Kg de produits de pêches sur le sol français.');
-				return;
-			}
-			if (this.store.q2 === 'epices' && fieldValue > 2) {
-				this._showMessage('Vous ne pouvez pas rapporter plus de 2Kg d\'épices sur le sol français.');
-				return;
-			}
-			this.store.weight = fieldValue;
-		}
-
-		if (substrId === 'q4' && fieldValue === 'eu') {
-			this._showMessage('Vous pouvez rapporter ce produit sans payer aucune taxe.');
-			return;
-		}
-
-		if (substrId === 'q6' && this.store.q5 === 'avion') {
-			if (fieldValue < 430) {
-				this._showMessage('Vous pouvez rapporter ce produit sans payer aucune taxe.');
-			}
-			if (fieldValue > 430 && fieldValue < 700) {
-				this._showMessage('Vous devez payer entre 0 et 2,5% de frais de douanes + 20% TVA. Soit pour ' +
-				                  this.store.weight + 'Kg de ' + this.store.type +
-				                  ': <ul><li>entre 0&euro; et ' + (fieldValue * 0.025) +
-				                  '&euro; de frais de douanes</li><li>' + (fieldValue * 0.20) +
-				                  '&euro; de TVA</li></ul>');
-			}
-			if (fieldValue > 700) {
-				this._showMessage('Vous devez payer entre 0 et 17% de frais de douanes + 20% TVA. Soit pour ' +
-				                  this.store.weight + 'Kg de ' + this.store.type +
-				                  ': <ul><li>entre 0&euro; et ' + (fieldValue * 0.17) +
-				                  '&euro; de frais de douanes</li><li>' + (fieldValue * 0.20) +
-				                  '&euro; de TVA</li></ul>');
-			}
-
-			return;
-		}
-		if (substrId === 'q6' && this.store.q5 === 'route') {
-			if (fieldValue < 300) {
-				this._showMessage('Vous pouvez rapporter ce produit sans payer aucune taxe.');
-			}
-			if (fieldValue > 300 && fieldValue < 700) {
-				this._showMessage('Vous devez payer entre 0 et 2,5% de frais de douanes + 20% TVA. Soit pour ' +
-				                  this.store.weight + 'Kg de ' + this.store.type +
-				                  ': <ul><li>entre 0&euro; et ' + (fieldValue * 0.025) +
-				                  '&euro; de frais de douanes</li><li>' + (fieldValue * 0.20) +
-				                  '&euro; de TVA</li></ul>');
-			}
-			if (fieldValue > 700) {
-				this._showMessage('Vous devez payer entre 0 et 17% de frais de douanes + 20% TVA. Soit pour ' +
-				                  this.store.weight + 'Kg de ' + this.store.type +
-				                  ': <ul><li>entre 0&euro; et ' + (fieldValue * 0.17) +
-				                  '&euro; de frais de douanes</li><li>' + (fieldValue * 0.20) +
-				                  '&euro; de TVA</li></ul>');
-			}
-			return;
-		}
-
 		// If everything's fine, set value in the store
 		this.store[substrId] = fieldValue;
+		console.log('Yo: ', this.store);
 
 		// If no condition are met, move on to the next field
 		this._nextField();
 	}
 
-	// Show message instead of going to the next field
-	FForm.prototype._showMessage = function(content) {
-		// Show popin
-		classie.add( document.getElementById('container'), 'end-of-path' );
-		classie.add( document.body, 'hide-it-yo' );
-
-		document.getElementById('end-modal').innerHTML += '<p class="header">Frais de douanes</p><p class="content"> ' + content + '</p><p class="footer clearfix"><a id="btn-stay" class="btn-stay">Annuler<a/><a href="index.html" class="btn-retry">Recommencer<a/><a id="btn-sav" class="btn-sav">Appel conseiller<a/></p>';
-
-		document.getElementById('btn-stay').addEventListener('click', function() {
-			document.getElementById('end-modal').innerHTML = '';
-			classie.remove( document.getElementById('container'), 'end-of-path' );
-			classie.remove( document.body, 'hide-it-yo' );
-		});
-		document.getElementById('btn-sav').addEventListener('click', function() {
-			document.getElementById('end-modal').innerHTML = '<p>Appel d\'un conseiller en cours...</p>'
-		});
+	FForm.prototype._calculateExpenses = function () {
+		// Update the field
+		var expensesEl = document.querySelector('.fs-expenses');
+		var isShown = classie.has(expensesEl, 'fs-show' )
+		if (!isShown) {
+			classie.add(expensesEl, 'fs-show');
+		}
+		document.getElementById('expenses').innerHTML = this.store.km;
 	}
 
 	// add to global namespace

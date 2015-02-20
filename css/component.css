@@ -1,7 +1,28 @@
 /*
-	background: #46A0AD ;
+	primary-blue: #46A0AD;
+	light-blue: #B0F0F9;
 
+	grey: #3D4348;
+	border: #25282A;
 */
+
+.fs-expenses {
+	text-align: center;
+	font-size: 1.5em;
+	padding: 10px 0;
+	width: 150px;
+	margin-left: -50px;
+	position: absolute;
+		bottom: 0;
+		left: 50%;
+		right: 50%;
+	background-color: #46A0AD;
+	border-radius: 3px;
+}
+
+.fs-expenses p {
+	margin: 0;
+}
 
 .icon-citadine {}
 .icon-compact {}
@@ -26,11 +47,11 @@ input[type='range'] {
   background: transparent;
   font-size: 1em;
   cursor: pointer;
-  margin-bottom: .8em;
   /* slider components */
   /* slider states */
 }
 
+/* track color #686b72 #444 #777 */
 input[type='range'], input[type='range']::-webkit-slider-runnable-track, input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
 }
@@ -39,24 +60,24 @@ input[type='range']::-webkit-slider-runnable-track {
   width: 13.375em;
   height: 1em;
   border-radius: .25em;
-  box-shadow: inset 0 .125em .125em #444,  inset 0 -1px 1px #777;
-  background: #686b72;
+  box-shadow: inset 0 .125em .125em #005461,  inset 0 -1px 1px #136D7A;
+  background: #46A0AD;
 }
 input[type='range']::-moz-range-track {
   border: none;
   width: 13.375em;
   height: 1em;
   border-radius: .25em;
-  box-shadow: inset 0 .125em .125em #444,  inset 0 -1px 1px #777;
-  background: #686b72;
+  box-shadow: inset 0 .125em .125em #005461,  inset 0 -1px 1px #136D7A;
+  background: #46A0AD;
 }
 input[type='range']::-ms-track {
   border: none;
   width: 13.375em;
   height: 1em;
   border-radius: .25em;
-  box-shadow: inset 0 .125em .125em #444,  inset 0 -1px 1px #777;
-  background: #686b72;
+  box-shadow: inset 0 .125em .125em #005461,  inset 0 -1px 1px #136D7A;
+  background: #46A0AD;
   color: transparent;
 }
 input[type='range']::-ms-fill-lower, input[type='range']::-ms-fill-upper {
@@ -71,7 +92,8 @@ input[type='range']::-webkit-slider-thumb {
   border-radius: .25em;
   box-shadow: 0 .25em .25em #222;
   transform: translateY(-0.25em);
-  background: radial-gradient(at 50% -1em, rgba(254, 163, 237, 0) 32%, #fea3ed 33%, #9e1e62 34%) no-repeat 50% 1.5em, linear-gradient(90deg, rgba(250, 93, 175, 0), #fa5daf, rgba(250, 93, 175, 0)) no-repeat 50% 90%, radial-gradient(at 50% -1em, rgba(0, 0, 0, 0) 30%, #f248a3 30%) 50% 50%;
+  background: radial-gradient(at 50% -1em, rgba(254, 163, 237, 0) 32%, #B0F0F9 33%, #46A0AD 34%) no-repeat 50% 1.5em, linear-gradient(90deg, rgba(70, 160, 173, 0), #60BAC7, rgba(70, 160, 173, 0)) no-repeat 50% 90%, radial-gradient(at 50% -1em, rgba(0, 0, 0, 0) 30%, #46A0AD 30%) 50% 50%;
+  /*background: radial-gradient(at 50% -1em, rgba(254, 163, 237, 0) 32%, #fea3ed 33%, #9e1e62 34%) no-repeat 50% 1.5em, linear-gradient(90deg, rgba(250, 93, 175, 0), #fa5daf, rgba(250, 93, 175, 0)) no-repeat 50% 90%, radial-gradient(at 50% -1em, rgba(0, 0, 0, 0) 30%, #f248a3 30%) 50% 50%;*/
   background-size: 300% 100%, 100% 84%, 300% 100%;
 }
 input[type='range']::-moz-range-thumb {
@@ -81,7 +103,7 @@ input[type='range']::-moz-range-thumb {
   border-radius: .25em;
   box-shadow: 0 .25em .25em #222;
   transform: translateY(-0.25em);
-  background: radial-gradient(at 50% -1em, rgba(254, 163, 237, 0) 32%, #fea3ed 33%, #9e1e62 34%) no-repeat 50% 1.5em, linear-gradient(90deg, rgba(250, 93, 175, 0), #fa5daf, rgba(250, 93, 175, 0)) no-repeat 50% 90%, radial-gradient(at 50% -1em, rgba(0, 0, 0, 0) 30%, #f248a3 30%) 50% 50%;
+  background: radial-gradient(at 50% -1em, rgba(254, 163, 237, 0) 32%, #B0F0F9 33%, #46A0AD 34%) no-repeat 50% 1.5em, linear-gradient(90deg, rgba(70, 160, 173, 0), #60BAC7, rgba(70, 160, 173, 0)) no-repeat 50% 90%, radial-gradient(at 50% -1em, rgba(0, 0, 0, 0) 30%, #46A0AD 30%) 50% 50%;
   background-size: 300% 100%, 100% 84%, 300% 100%;
   cursor: ew-resize;
 }
@@ -206,7 +228,8 @@ input[type='range']::-ms-thumb {
 .fs-numbers,
 button.fs-continue,
 .fs-message-error,
-.fs-message-final {
+.fs-message-final,
+.fs-expenses {
 	visibility: hidden;
 }
 
@@ -942,7 +965,7 @@ input[type=text]::-ms-clear {
 		right: 25px;
 	}
 
-	button.fs-continue {
+	/*button.fs-continue {
 		right: 20px;
 		bottom: 20px;
 		margin: 0;
@@ -963,11 +986,11 @@ input[type=text]::-ms-clear {
 		text-align: center;
 		font-size: 1em;
 		line-height: 50px;
-	}
+	}*/
 
-	.fs-continue::after {
+	/*.fs-continue::after {
 		content: '';
-	}
+	}*/
 
 	button.fs-submit {
 		width: 100%;
