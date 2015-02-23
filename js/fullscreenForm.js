@@ -487,6 +487,9 @@
 		var substrId = ev.target.id.substr(0, 2);
 		var fieldValue = ev.target.value;
 
+		// Send event to GA
+		ga('send', 'event', 'step', 'next', 'Next step', substrId);
+
 		// If everything's fine, set value in the store
 		this.store[substrId] = fieldValue;
 		console.log('Yo: ', this.store);
@@ -496,13 +499,17 @@
 	}
 
 	FForm.prototype._calculateExpenses = function () {
+		// Calculate expenses
+		var expenses = this.store.km;
 		// Update the field
 		var expensesEl = document.querySelector('.fs-expenses');
 		var isShown = classie.has(expensesEl, 'fs-show' )
 		if (!isShown) {
 			classie.add(expensesEl, 'fs-show');
 		}
-		document.getElementById('expenses').innerHTML = this.store.km;
+		document.getElementById('expenses').innerHTML = expenses;
+		// Send event to GA
+		ga('send', 'event', 'step', 'calculate', 'L\'utilisateur calcul ses frais', expenses);
 	}
 
 	// add to global namespace
