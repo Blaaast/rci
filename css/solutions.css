@@ -66,6 +66,9 @@ div .fs-numbers {
   color: #B0F0F9;
   margin: 0;
 }
+.logo-rci {
+  margin: -23px 0;
+}
 
 .solutions-avatar{
   float: left;
@@ -93,5 +96,9 @@ div .fs-numbers {
   .solutions-avatar img {
     border-radius: 50%;
     max-width: 60px;
+  }
+  .logo-rci {
+    margin: -10px 0;
+    max-width: 115px;
   }
 }
