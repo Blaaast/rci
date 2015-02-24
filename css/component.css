@@ -48,6 +48,7 @@ div .fs-numbers {
 }
 .my-expenses {
 	font-size: 25px;
+	font-weight: bold;
 }
 .fs-expenses a {
 	display: block;
