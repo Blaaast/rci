@@ -1,0 +1,52 @@
+body {
+  background: #fff;
+  color: #3D4348;
+  font-weight: 400;
+  font-family: 'Raleway', Arial, sans-serif;
+  overflow: hidden;
+  overflow-y: scroll;
+  min-height: 590px;
+}
+
+
+h1, h2 {
+  color: #46A0AD;
+}
+h1 {
+  font-weight: bold;
+  font-size: 32px;
+  margin: 0;
+}
+h2 {
+  margin-top: 0;
+}
+
+.table>tbody>tr>td.success {
+  background-color: #B0F0F9;
+}
+
+.rci-example {
+  margin-bottom: 50px;
+}
+
+.fs-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 40px;
+  width: 100%;
+}
+
+.solutions-container {
+  margin-top: 140px;
+}
+
+@media screen and (max-width: 52.5em) {
+  .fs-title {
+    padding: 20px;
+  }
+  .solutions-container {
+    margin-top: 100px;
+  }
+}
