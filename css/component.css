@@ -25,9 +25,7 @@ body .fs-fields input:focus {
 .icon-diesel::after 	{ background-image: url(../img/essence.png); }
 .icon-essence::after { background-image: url(../img/essence.png); }
 .fs-fields .fs-radio-custom .icon-essence::after,
-.fs-fields .fs-radio-custom .icon-diesel::after {
-	width: 70%;
-}
+.fs-fields .fs-radio-custom .icon-diesel::after { width: 70%; }
 
 .icon-mixte::after { background-image: url(../img/type/mixte.jpg); }
 .icon-route::after { background-image: url(../img/type/route.jpg); }
