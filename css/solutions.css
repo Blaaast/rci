@@ -38,6 +38,18 @@ h2 {
   width: 100%;
 }
 
+.solutions-avatar{
+  float: left;
+  text-align: center;
+}
+.solutions-avatar img {
+  border-radius: 50%;
+  max-width: 100px;
+}
+.solutions-body {
+  overflow: hidden;
+}
+
 .solutions-container {
   margin-top: 140px;
 }
@@ -48,5 +60,9 @@ h2 {
   }
   .solutions-container {
     margin-top: 100px;
+  }
+  .solutions-avatar img {
+    border-radius: 50%;
+    max-width: 60px;
   }
 }
