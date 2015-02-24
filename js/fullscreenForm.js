@@ -4,6 +4,37 @@
 
 	// Matrices of values
 
+	var fuelPrice = { // euros
+		'diesel': 1.23,
+		'essence': 1.40
+	}
+
+	var consoMatrix = {
+		'citadine': {
+			'essence': {
+				'mixte': 6.1
+			},
+			'diesel': {
+				'mixte': 5
+			}
+		},
+		'compact': {
+			'essence': {
+				'mixte':  7.3
+			},
+			'diesel': {
+				'mixte': 5.6
+			}
+		},
+		'monospace': {
+			'essence': {
+				'mixte': 7.8
+			},
+			'diesel': {
+				 'mixte': 6.4
+			}
+		}
+	};
 
 	// Support
 	var support = { animations : Modernizr.cssanimations },
@@ -481,7 +512,7 @@
 		this._hideCtrl( this.msgError );
 	}
 
-	// ADDED at each step, check if some conditions are not fullfiled
+	// Add at each step
 	FForm.prototype._fieldHandler = function(ev) {
 		var currentFld = this.fields[ this.current ];
 		var substrId = ev.target.id.substr(0, 2);
@@ -490,8 +521,14 @@
 		// Send event to GA
 		ga('send', 'event', 'step', 'next', 'Next step', substrId);
 
+		// If value already exists, update the expenses
+		if ( this.store[substrId] ) {
+			return _calculateExpenses();
+		}
+
 		// If everything's fine, set value in the store
 		this.store[substrId] = fieldValue;
+		console.log('store: ', this.store);
 
 		// If no condition are met, move on to the next field
 		this._nextField();
@@ -499,7 +536,13 @@
 
 	FForm.prototype._calculateExpenses = function () {
 		// Calculate expenses
-		var expenses = this.store.km;
+		var store = this.store;
+		var finalFuelPrice = fuelPrice[this.store['q2']];
+		var conso = consoMatrix[store['q1']][store['q2']][store['q3']];
+		console.log('fuel price: ', finalFuelPrice);
+		console.log('km: ', this.store.km);
+		console.log('fuel price: ', conso);
+		var expenses = ((this.store.km * 4) * (conso / 100) * finalFuelPrice).toFixed(2);
 		// Update the field
 		var expensesEl = document.querySelector('.fs-expenses');
 		var isShown = classie.has(expensesEl, 'fs-show' )
