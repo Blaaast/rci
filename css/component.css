@@ -18,6 +18,11 @@ body .fs-fields input:focus {
 }
 /* END surcharges */
 
+.logo-rci {
+	margin: -20px 0;
+		max-width: 65px;
+}
+
 .fs-title .new-simu {
 	float: right;
 	color: #B0F0F9;
@@ -1053,5 +1058,10 @@ input[type=text]::-ms-clear {
 	.fs-message-error.fs-show {
 		-webkit-transform: translate3d(0,0,0);
 		transform: translate3d(0,0,0);
+	}
+
+	.logo-rci {
+		margin: -10px 0;
+		max-width: 40px;
 	}
 }
