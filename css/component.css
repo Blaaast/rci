@@ -22,12 +22,20 @@ body .fs-fields input:focus {
 .icon-compact::after 		{ background-image: url(../img/cars/compact.png); }
 .icon-monospace::after 	{ background-image: url(../img/cars/monospace.png); }
 
-.icon-diesel::after 	{ background-image: url(../img/cars/monospace.png); }
-.icon-essence::after 	{ background-image: url(../img/cars/monospace.png); }
+.icon-diesel::after 	{ background-image: url(../img/essence.png); }
+.icon-essence::after { background-image: url(../img/essence.png); }
+.fs-fields .fs-radio-custom .icon-essence::after,
+.fs-fields .fs-radio-custom .icon-diesel::after {
+	width: 70%;
+}
 
-.icon-mixte::after { background-image: url(../img/cars/monospace.png); }
-.icon-route::after { background-image: url(../img/cars/monospace.png); }
-.icon-ville::after { background-image: url(../img/cars/monospace.png); }
+.icon-mixte::after { background-image: url(../img/type/mixte.jpg); }
+.icon-route::after { background-image: url(../img/type/route.jpg); }
+.icon-ville::after { background-image: url(../img/type/ville.jpg); }
+
+.fs-fields > li .fs-radio-custom .radio-type {
+	padding-top: 100%;
+}
 
 .logo-rci {
 	margin: -23px 0;
