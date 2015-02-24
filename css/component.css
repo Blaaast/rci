@@ -18,12 +18,12 @@ body .fs-fields input:focus {
 }
 /* END surcharges */
 
-.icon-citadine::after { background-image: url(../img/cars/citadine.png); }
-.icon-compact::after { background-image: url(../img/cars/compact.png); }
-.icon-monospace::after { background-image: url(../img/cars/monospace.png); }
+.icon-citadine::after 	{ background-image: url(../img/cars/citadine.png); }
+.icon-compact::after 		{ background-image: url(../img/cars/compact.png); }
+.icon-monospace::after 	{ background-image: url(../img/cars/monospace.png); }
 
-.icon-diesel::after { background-image: url(../img/cars/monospace.png); }
-.icon-essence::after { background-image: url(../img/cars/monospace.png); }
+.icon-diesel::after 	{ background-image: url(../img/cars/monospace.png); }
+.icon-essence::after 	{ background-image: url(../img/cars/monospace.png); }
 
 .icon-mixte::after { background-image: url(../img/cars/monospace.png); }
 .icon-route::after { background-image: url(../img/cars/monospace.png); }

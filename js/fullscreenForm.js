@@ -531,7 +531,7 @@
 		var fieldValue = ev.target.value;
 
 		// Send event to GA
-		ga('send', 'event', 'step', 'next', 'Next step', substrId);
+		ga('send', 'event', 'step', 'next', 'Next step' + substrId);
 
 		console.log('Store: ', this.store[substrId]);
 		if (this.store[substrId]) {
