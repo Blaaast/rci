@@ -12,26 +12,38 @@
 	var consoMatrix = {
 		'citadine': {
 			'essence': {
-				'mixte': 6.1
+				'route': 5.5,
+				'mixte': 6.1,
+				'ville': 7
 			},
 			'diesel': {
-				'mixte': 5
+				'route': 4.5,
+				'mixte': 5,
+				'ville': 5.8
 			}
 		},
 		'compact': {
 			'essence': {
-				'mixte':  7.3
+				'route': 6.6,
+				'mixte': 7.3,
+				'ville': 8.4
 			},
 			'diesel': {
-				'mixte': 5.6
+				'route': 5,
+				'mixte': 5.6,
+				'ville': 6.4
 			}
 		},
 		'monospace': {
 			'essence': {
-				'mixte': 7.8
+				'route': 7,
+				'mixte': 7.8,
+				'ville': 9
 			},
 			'diesel': {
-				 'mixte': 6.4
+				'route': 5.8,
+				'mixte': 6.4,
+				'ville': 7.4
 			}
 		}
 	};
@@ -79,7 +91,7 @@
 	 */
 	function FForm( el, options ) {
 		this.el = el;
-		this.store = {};
+		this.store = { alreadyVisited: {} };
 		this.options = extend( {}, this.options );
   		extend( this.options, options );
   		this._init();
@@ -521,14 +533,18 @@
 		// Send event to GA
 		ga('send', 'event', 'step', 'next', 'Next step', substrId);
 
-		// If value already exists, update the expenses
-		if ( this.store[substrId] ) {
-			return _calculateExpenses();
+		console.log('Store: ', this.store[substrId]);
+		if (this.store[substrId]) {
+			this.store.alreadyVisited[substrId] = true;
 		}
 
 		// If everything's fine, set value in the store
 		this.store[substrId] = fieldValue;
-		console.log('store: ', this.store);
+
+		// If value already exists, update the expenses
+		if ( this.store.alreadyVisited[substrId] ) {
+			return this._calculateExpenses();
+		}
 
 		// If no condition are met, move on to the next field
 		this._nextField();
@@ -539,9 +555,6 @@
 		var store = this.store;
 		var finalFuelPrice = fuelPrice[this.store['q2']];
 		var conso = consoMatrix[store['q1']][store['q2']][store['q3']];
-		console.log('fuel price: ', finalFuelPrice);
-		console.log('km: ', this.store.km);
-		console.log('fuel price: ', conso);
 		var expenses = ((this.store.km * 4) * (conso / 100) * finalFuelPrice).toFixed(2);
 		// Update the field
 		var expensesEl = document.querySelector('.fs-expenses');
