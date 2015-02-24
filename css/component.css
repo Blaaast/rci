@@ -6,22 +6,37 @@
 	border: #25282A;
 */
 
+/* START surcharges */
+body .fs-fields .fs-radio-custom input[type="radio"]:checked + label {
+	color: #46A0AD;
+}
+body .fs-fields > li .fs-radio-custom span {
+	font-size: 20px;
+}
+body .fs-fields input:focus {
+	background-color: transparent;
+}
+/* END surcharges */
+
 .fs-expenses {
 	text-align: center;
 	font-size: 1.5em;
-	padding: 10px 0;
-	width: 150px;
-	margin-left: -50px;
+	padding: 10px 0 0;
 	position: absolute;
 		bottom: 0;
-		left: 50%;
-		right: 50%;
+		left: 0;
+		right: 0;
+}
+.my-expenses {
+	font-size: 20px;
+}
+.fs-expenses a {
+	display: block;
 	background-color: #46A0AD;
 	color: #fff;
-	border-radius: 3px;
+	padding: 18px
 }
-
-.fs-expenses p {
+.fs-expenses a p {
 	margin: 0;
 }
 
@@ -86,16 +101,20 @@ input[type='range']::-ms-fill-lower, input[type='range']::-ms-fill-upper {
 }
 
 input[type='range']::-webkit-slider-thumb {
-  margin-top: -0.5em;
+  margin-top: -20px;
   border: none;
-  width: 3.5em;
-  height: 2em;
-  border-radius: .25em;
-  box-shadow: 0 .25em .25em #222;
-  transform: translateY(-0.25em);
-  background: radial-gradient(at 50% -1em, rgba(254, 163, 237, 0) 32%, #B0F0F9 33%, #46A0AD 34%) no-repeat 50% 1.5em, linear-gradient(90deg, rgba(70, 160, 173, 0), #60BAC7, rgba(70, 160, 173, 0)) no-repeat 50% 90%, radial-gradient(at 50% -1em, rgba(0, 0, 0, 0) 30%, #46A0AD 30%) 50% 50%;
-  /*background: radial-gradient(at 50% -1em, rgba(254, 163, 237, 0) 32%, #fea3ed 33%, #9e1e62 34%) no-repeat 50% 1.5em, linear-gradient(90deg, rgba(250, 93, 175, 0), #fa5daf, rgba(250, 93, 175, 0)) no-repeat 50% 90%, radial-gradient(at 50% -1em, rgba(0, 0, 0, 0) 30%, #f248a3 30%) 50% 50%;*/
-  background-size: 300% 100%, 100% 84%, 300% 100%;
+  width: 64px;
+  height: 64px;
+  /*border-radius: .25em;*/
+  /*box-shadow: 0 .25em .25em #222;*/
+  /*transform: translateY(-0.25em);*/
+  /*background-color: #B0F0F9;*/
+  background-image: url(../img/car/sedan2.png);
+  background-repeat: none;
+  background-size: 100% 100%;
+  /*background: radial-gradient(at 50% -1em, rgba(254, 163, 237, 0) 32%, #B0F0F9 33%, #46A0AD 34%) no-repeat 50% 1.5em, linear-gradient(90deg, rgba(70, 160, 173, 0), #60BAC7, rgba(70, 160, 173, 0)) no-repeat 50% 90%, radial-gradient(at 50% -1em, rgba(0, 0, 0, 0) 30%, #46A0AD 30%) 50% 50%;
+  background: radial-gradient(at 50% -1em, rgba(254, 163, 237, 0) 32%, #fea3ed 33%, #9e1e62 34%) no-repeat 50% 1.5em, linear-gradient(90deg, rgba(250, 93, 175, 0), #fa5daf, rgba(250, 93, 175, 0)) no-repeat 50% 90%, radial-gradient(at 50% -1em, rgba(0, 0, 0, 0) 30%, #f248a3 30%) 50% 50%;
+  background-size: 300% 100%, 100% 84%, 300% 100%;*/
 }
 input[type='range']::-moz-range-thumb {
   border: none;
