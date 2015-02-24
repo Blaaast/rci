@@ -492,7 +492,6 @@
 
 		// If everything's fine, set value in the store
 		this.store[substrId] = fieldValue;
-		console.log('Yo: ', this.store);
 
 		// If no condition are met, move on to the next field
 		this._nextField();

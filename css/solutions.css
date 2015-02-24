@@ -8,7 +8,6 @@ body {
   min-height: 590px;
 }
 
-
 h1, h2 {
   color: #46A0AD;
 }
@@ -21,6 +20,30 @@ h2 {
   margin-top: 0;
 }
 
+.fs-title .new-simu {
+  float: right;
+  color: #B0F0F9;
+  padding: 10px;
+  font-size: 18px;
+  margin: -10px 0;
+  border: 2px solid #B0F0F9;
+}
+
+.fs-title .new-simu:hover {
+  color: #46A0AD;
+  border: 2px solid #46A0AD;
+}
+
+div .fs-numbers {
+  top: 117px;
+  color: #46A0AD;
+}
+
+.savings {
+  font-size: 18px;
+  color: #46A0AD;
+}
+
 .table>tbody>tr>td.success {
   background-color: #B0F0F9;
 }
@@ -30,12 +53,18 @@ h2 {
 }
 
 .fs-title {
+  background-color: #3D4348;
   position: absolute;
   top: 0;
   left: 0;
   margin: 0;
   padding: 40px;
   width: 100%;
+}
+
+.fs-title h1 {
+  color: #B0F0F9;
+  margin: 0;
 }
 
 .solutions-avatar{

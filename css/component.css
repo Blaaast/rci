@@ -18,6 +18,25 @@ body .fs-fields input:focus {
 }
 /* END surcharges */
 
+.fs-title .new-simu {
+	float: right;
+	color: #B0F0F9;
+	padding: 10px;
+	font-size: 18px;
+	margin: -10px 0;
+	border: 2px solid #B0F0F9;
+}
+
+.fs-title .new-simu:hover {
+	color: #46A0AD;
+	border: 2px solid #46A0AD;
+}
+
+div .fs-numbers {
+	top: 117px;
+	color: #46A0AD;
+}
+
 .fs-expenses {
 	text-align: center;
 	font-size: 1.5em;
@@ -159,6 +178,7 @@ input[type='range']::-ms-thumb {
 
 /* Title */
 .fs-title {
+	background-color: #3D4348;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -168,6 +188,7 @@ input[type='range']::-ms-thumb {
 }
 
 .fs-title h1 {
+	color: #B0F0F9;
 	margin: 0;
 }
 
@@ -663,7 +684,7 @@ button.fs-continue,
 	top: 0;
 	width: 0%;
 	height: 0.5em;
-	background: #fffed8;
+	background: #46A0AD;
 	-webkit-transition: width 0.3s ease-in-out;
 	transition: width 0.3s ease-in-out;
 }
@@ -977,8 +998,9 @@ input[type=text]::-ms-clear {
 		padding: 20px;
 	}
 
-	.fs-numbers {
+	div .fs-numbers {
 		margin: 20px;
+		top: 66px;
 	}
 
 	.fs-nav-dots {
