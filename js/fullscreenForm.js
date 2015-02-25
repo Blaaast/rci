@@ -125,6 +125,12 @@
 		// current field position
 		this.current = 0;
 
+		// Link google events with the "see solutions button"
+		document.getElementById('link-to-solutions').addEventListener('click', function() {
+			ga('send', 'event', 'step', 'solutions');
+			return true;
+		});
+
 		// all fields
 		this.fields = [].slice.call( this.fieldsList.children );
 
