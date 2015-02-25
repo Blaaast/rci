@@ -298,11 +298,14 @@
     <script>
       (function() {
         var query = (window.location.search || '?').substr(1),
-            map   = {};
+            map   = {},
+            expenses;
         query.replace(/([^&=]+)=?([^&]*)(?:&+|$)/g, function(match, key, value) {
             (map[key] = map[key] || []).push(value);
         });
-        document.getElementById('my-expenses').innerHTML = map.expenses[0];
+        expenses = map.expenses ? map.expenses[0] : 'Non calculés';
+
+        document.getElementById('my-expenses').innerHTML = expenses;
       })();
     </script>
 
