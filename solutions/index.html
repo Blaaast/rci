@@ -28,7 +28,7 @@
       <div class="row rci-example">
         <div class="col-md-12">
           <h1>Je calcule mes frais / solutions</h1>
-          <h2>Mes frais: <span id="my-expenses"></span>&euro;</h2>
+          <h2>Mes frais: <span id="my-expenses"></span></h2>
         </div>
       </div>
 
@@ -303,7 +303,7 @@
         query.replace(/([^&=]+)=?([^&]*)(?:&+|$)/g, function(match, key, value) {
             (map[key] = map[key] || []).push(value);
         });
-        expenses = map.expenses ? map.expenses[0] : 'Non calculés';
+        expenses = map.expenses ? map.expenses[0] + '&euro;' : 'Non calculés';
 
         document.getElementById('my-expenses').innerHTML = expenses;
       })();
