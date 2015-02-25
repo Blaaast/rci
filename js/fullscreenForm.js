@@ -116,6 +116,7 @@
 	 * initialize and cache some vars
 	 */
 	FForm.prototype._init = function() {
+		var self = this;
 		// the form element
 		this.formEl = this.el.querySelector( 'form' );
 
@@ -126,9 +127,10 @@
 		this.current = 0;
 
 		// Link google events with the "see solutions button"
-		document.getElementById('link-to-solutions').addEventListener('click', function() {
+		document.getElementById('link-to-solutions').addEventListener('click', function(e) {
 			ga('send', 'event', 'step', 'solutions');
-			return true;
+			this.href += '?expenses=' + (self.store.expenses || 0);
+			console.log('Element: ', this.href);
 		});
 
 		// all fields
@@ -562,6 +564,7 @@
 		var finalFuelPrice = fuelPrice[this.store['q2']];
 		var conso = consoMatrix[store['q1']][store['q2']][store['q3']];
 		var expenses = ((this.store.km * 4) * (conso / 100) * finalFuelPrice).toFixed(2);
+		this.store.expenses = expenses;
 		// Update the field
 		var expensesEl = document.querySelector('.fs-expenses');
 		var isShown = classie.has(expensesEl, 'fs-show' )
