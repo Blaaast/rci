@@ -39,18 +39,40 @@ body .fs-fields input:focus {
 	margin: -23px 0;
 }
 
-.fs-title .new-simu {
-	float: right;
+.new-simu {
 	color: #B0F0F9;
 	padding: 10px;
 	font-size: 18px;
-	margin: -10px 0;
 	border: 2px solid #B0F0F9;
 }
 
-.fs-title .new-simu:hover {
+.new-simu:hover {
 	color: #46A0AD;
 	border: 2px solid #46A0AD;
+}
+
+.footer-links {
+	text-align: center;
+}
+
+p.footer-links a {
+	display: inline;
+	padding: 8px 10px;
+	border: 3px solid #46A0AD;
+	border-radius: 0;
+	font-weight: 700;
+	color: #46A0AD;
+	background-color: #fff;
+	margin-right: 8px;
+}
+p.footer-links a:hover {
+	background: #B0F0F9;
+	color: #3D4348;
+}
+
+.fs-title .new-simu {
+	float: right;
+	margin: -10px 0;
 }
 
 div .fs-numbers {
@@ -68,7 +90,7 @@ div .fs-numbers {
 		right: 0;
 }
 .my-expenses {
-	font-size: 25px;
+	font-size: 35px;
 	font-weight: bold;
 }
 .fs-expenses a {
