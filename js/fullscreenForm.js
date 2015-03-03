@@ -47,6 +47,8 @@
 			}
 		}
 	};
+	var insurance = 83;
+	var cleaning = 46;
 
 	// Support
 	var support = { animations : Modernizr.cssanimations },
@@ -130,8 +132,13 @@
 		document.getElementById('link-to-solutions').addEventListener('click', function(e) {
 			ga('send', 'event', 'step', 'solutions');
 			this.href += '?expenses=' + (self.store.expenses || 0);
-			console.log('Element: ', this.href);
 		});
+
+		// Add basic infos
+		document.getElementById('q5a').value = insurance;
+		document.getElementById('q5b').value = cleaning;
+		this.store.insurance = insurance;
+		this.store.cleaning = cleaning;
 
 		// all fields
 		this.fields = [].slice.call( this.fieldsList.children );
@@ -232,9 +239,21 @@
 		// init range slider
 		document.getElementById('q4').addEventListener('change', function() {
 			// Check if a condition is fullfiled before moving to the next field
-			self.store.km = this.value;
+			self.store.km = parseInt(this.value, 10);
 			self._calculateExpenses();
 			self.ctrlContinue.click();
+		});
+
+		// init "other expenses" inputs
+		document.getElementById('q5a').addEventListener('change', function() {
+			// Check if a condition is fullfiled before moving to the next field
+			self.store.insurance = parseInt(this.value, 10);
+			self._calculateExpenses();
+		});
+		document.getElementById('q5b').addEventListener('change', function() {
+			// Check if a condition is fullfiled before moving to the next field
+			self.store.cleaning = parseInt(this.value, 10);
+			self._calculateExpenses();
 		});
 
 		// navigation dots
@@ -563,7 +582,9 @@
 		var store = this.store;
 		var finalFuelPrice = fuelPrice[this.store['q2']];
 		var conso = consoMatrix[store['q1']][store['q2']][store['q3']];
-		var expenses = ((this.store.km * 4) * (conso / 100) * finalFuelPrice).toFixed(2);
+		var insu = this.store.insurance;
+		var clean = this.store.cleaning;
+		var expenses = ((this.store.km * 4) * (conso / 100) * finalFuelPrice + insu + clean).toFixed(2);
 		this.store.expenses = expenses;
 		// Update the field
 		var expensesEl = document.querySelector('.fs-expenses');
