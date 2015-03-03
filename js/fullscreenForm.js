@@ -234,7 +234,7 @@
 			// Check if a condition is fullfiled before moving to the next field
 			self.store.km = this.value;
 			self._calculateExpenses();
-			this.ctrlContinue.click();
+			self.ctrlContinue.click();
 		});
 
 		// navigation dots
