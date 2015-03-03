@@ -8,13 +8,16 @@ body {
   min-height: 590px;
 }
 
-h1, h2 {
+h1, h2, h3, .h1, .h2, .h3 {
   color: #46A0AD;
 }
 h1 {
   font-weight: bold;
   font-size: 32px;
   margin: 0;
+}
+.h1 {
+  padding-bottom: 20px;
 }
 h2 {
   margin-top: 0;
@@ -101,4 +104,29 @@ div .fs-numbers {
     margin: -10px 0;
     max-width: 115px;
   }
+}
+
+.footer-links {
+  text-align: center;
+}
+
+p.footer-links a {
+  margin-top: 50px;
+  font-size: 28px;
+  display: block;
+  padding: 8px 10px;
+  border: 3px solid #46A0AD;
+  border-radius: 0;
+  font-weight: 700;
+  color: #46A0AD;
+  background-color: #fff;
+  margin-right: 8px;
+}
+p.footer-links a:hover {
+  background: #B0F0F9;
+  color: #3D4348;
+}
+.logo-rci {
+  margin: -10px 0;
+  max-width: 115px;
 }
