@@ -169,7 +169,7 @@
 			this.ctrlNav = createElement( 'nav', { cName : 'fs-nav-dots', appendTo : this.ctrls } );
 			var dots = '';
 			for( var i = 0; i < this.fieldsCount; ++i ) {
-				dots += i === this.current ? '<button class="fs-dot-current"></button>' : '<button disabled></button>';
+				dots += i === this.current ? '<button class="fs-dot-current">' + i + '</button>' : '<button disabled>' + i + '</button>';
 			}
 			this.ctrlNav.innerHTML = dots;
 			this._showCtrl( this.ctrlNav );
@@ -178,16 +178,16 @@
 
 		// field number status
 		if( this.options.ctrlNavPosition ) {
-			this.ctrlFldStatus = createElement( 'span', { cName : 'fs-numbers', appendTo : this.ctrls } );
+			// this.ctrlFldStatus = createElement( 'span', { cName : 'fs-numbers', appendTo : this.ctrls } );
 
 			// current field placeholder
-			this.ctrlFldStatusCurr = createElement( 'span', { cName : 'fs-number-current', inner : Number( this.current + 1 ) } );
-			this.ctrlFldStatus.appendChild( this.ctrlFldStatusCurr );
+			//this.ctrlFldStatusCurr = createElement( 'span', { cName : 'fs-number-current', inner : Number( this.current + 1 ) } );
+			//this.ctrlFldStatus.appendChild( this.ctrlFldStatusCurr );
 
 			// total fields placeholder
-			this.ctrlFldStatusTotal = createElement( 'span', { cName : 'fs-number-total', inner : this.fieldsCount } );
-			this.ctrlFldStatus.appendChild( this.ctrlFldStatusTotal );
-			this._showCtrl( this.ctrlFldStatus );
+			//this.ctrlFldStatusTotal = createElement( 'span', { cName : 'fs-number-total', inner : this.fieldsCount } );
+			//this.ctrlFldStatus.appendChild( this.ctrlFldStatusTotal );
+			//this._showCtrl( this.ctrlFldStatus );
 		}
 
 		// progress bar
@@ -234,6 +234,7 @@
 			// Check if a condition is fullfiled before moving to the next field
 			self.store.km = this.value;
 			self._calculateExpenses();
+			this.ctrlContinue.click();
 		});
 
 		// navigation dots
@@ -354,7 +355,7 @@
 					self._hideCtrl( self.ctrlNav );
 					self._hideCtrl( self.ctrlProgress );
 					self._hideCtrl( self.ctrlContinue );
-					self._hideCtrl( self.ctrlFldStatus );
+					//self._hideCtrl( self.ctrlFldStatus );
 					// replace class fs-form-full with fs-form-overview
 					classie.remove( self.formEl, 'fs-form-full' );
 					classie.add( self.formEl, 'fs-form-overview' );
@@ -366,9 +367,9 @@
 					classie.remove( nextField, 'fs-show' );
 
 					if( self.options.ctrlNavPosition ) {
-						self.ctrlFldStatusCurr.innerHTML = self.ctrlFldStatusNew.innerHTML;
-						self.ctrlFldStatus.removeChild( self.ctrlFldStatusNew );
-						classie.remove( self.ctrlFldStatus, 'fs-show-' + self.navdir );
+						//self.ctrlFldStatusCurr.innerHTML = self.ctrlFldStatusNew.innerHTML;
+						//self.ctrlFldStatus.removeChild( self.ctrlFldStatusNew );
+						//classie.remove( self.ctrlFldStatus, 'fs-show-' + self.navdir );
 					}
 				}
 				self.isAnimating = false;
@@ -410,17 +411,17 @@
 	FForm.prototype._updateFieldNumber = function() {
 		if( this.options.ctrlNavPosition ) {
 			// first, create next field number placeholder
-			this.ctrlFldStatusNew = document.createElement( 'span' );
-			this.ctrlFldStatusNew.className = 'fs-number-new';
-			this.ctrlFldStatusNew.innerHTML = Number( this.current + 1 );
+			//this.ctrlFldStatusNew = document.createElement( 'span' );
+			//this.ctrlFldStatusNew.className = 'fs-number-new';
+			//this.ctrlFldStatusNew.innerHTML = Number( this.current + 1 );
 
 			// insert it in the DOM
-			this.ctrlFldStatus.appendChild( this.ctrlFldStatusNew );
+//			this.ctrlFldStatus.appendChild( this.ctrlFldStatusNew );
 
 			// add class "fs-show-next" or "fs-show-prev" depending on the navigation direction
 			var self = this;
 			setTimeout( function() {
-				classie.add( self.ctrlFldStatus, self.navdir === 'next' ? 'fs-show-next' : 'fs-show-prev' );
+				//classie.add( self.ctrlFldStatus, self.navdir === 'next' ? 'fs-show-next' : 'fs-show-prev' );
 			}, 25 );
 		}
 	}
@@ -538,9 +539,6 @@
 		var substrId = ev.target.id.substr(0, 2);
 		var fieldValue = ev.target.value;
 
-		// Send event to GA
-		ga('send', 'event', 'step', 'next', 'Next step' + substrId);
-
 		console.log('Store: ', this.store[substrId]);
 		if (this.store[substrId]) {
 			this.store.alreadyVisited[substrId] = true;
@@ -549,11 +547,13 @@
 		// If everything's fine, set value in the store
 		this.store[substrId] = fieldValue;
 
-		// If value already exists, update the expenses
+		// If value already exists, update the expenses and return
 		if ( this.store.alreadyVisited[substrId] ) {
 			return this._calculateExpenses();
 		}
 
+		// Send event to GA
+		ga('send', 'event', 'step', 'next', 'Next step' + substrId);
 		// If no condition are met, move on to the next field
 		this._nextField();
 	}

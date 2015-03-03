@@ -22,7 +22,7 @@
 			<div class="fs-form-wrap" id="fs-form-wrap">
 
 				<div class="fs-expenses">
-					<p class="my-expenses">Mes frais mensuels: <span id="expenses">150</span>&euro;</p>
+					<p class="my-expenses fs-show">Mes frais: <br><span id="expenses">...</span>&euro;</p>
 					<p class="footer-links">
 						<a href="http://www.renault.fr/vehicules-occasion/#!/home">
 							Rendez-vous en concession <i class="fa fa-arrow-circle-right"></i>
@@ -37,12 +37,33 @@
 				<div class="fs-title">
 					<a class="new-simu" href="">Nouvelle simulation</a>
 					<h1>
-						<!-- <img class="logo-rci" src="img/logo_rci.png"> -->
-						Je calcule mes frais
+						<img class="logo-rci" src="img/logo.png">
+						<!-- Je calcule mes frais -->
 					</h1>
 				</div>
 				<form id="myform" class="fs-form fs-form-full" autocomplete="off">
 					<ol class="fs-fields">
+
+						<li data-input-trigger>
+							<label class="fs-field-label fs-anim-upper" for="q5">Frais supplémentaires</label>
+
+							<div class=" clearfix fs-anim-lower">
+
+								<p class="clearfix">
+									<label for="q5a" class="inline-label">Assurance <sup>1</sup></label>
+									<input id="q5a" class="inline-input input-number" value="83" min="0" name="q5" type="number" value="route"/><img class="euro-mark" src="img/icons/euro.png">
+								</p>
+
+								<p class="clearfix">
+									<label for="q5b" class="inline-label">Entretiens <sup>2</sup></label>
+									<input id="q5b" class="inline-input input-number" value="46" min="0" name="q5" type="number" value="mixte"/><img class="euro-mark" src="img/icons/euro.png">
+								</p>
+
+								<small class="note-small"><sup>1</sup> Le montant moyen national est de 1000€/an</small><br>
+								<small class="note-small"><sup>2</sup> Le montant moyen national est de 550€/an</small>
+
+							</div>
+						</li>
 
 						<li data-input-trigger>
 							<div class="clearfix fs-field-label fs-anim-upper" id="landing-page">

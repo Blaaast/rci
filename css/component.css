@@ -18,12 +18,39 @@ body .fs-fields input:focus {
 }
 /* END surcharges */
 
+.euro-mark {
+	height: 28px;
+}
+
+.note-small {
+	font-size: 12px;
+}
+
+.inline-label {
+	float: left;
+}
+
+.fs-fields .inline-input {
+	float: left;
+}
+
+.fs-fields .input-number {
+	width: 100px;
+	text-align: right;
+	margin-left: 20px;
+}
+
+.logo-rci {
+	margin: -10px 0;
+	max-width: 200px;
+}
+
 .icon-citadine::after 	{ background-image: url(../img/cars/citadine.png); }
 .icon-compact::after 		{ background-image: url(../img/cars/compact.png); }
 .icon-monospace::after 	{ background-image: url(../img/cars/monospace.png); }
 
 .icon-diesel::after 	{ background-image: url(../img/essence.png); }
-.icon-essence::after { background-image: url(../img/essence.png); }
+.icon-essence::after 	{ background-image: url(../img/essence.png); }
 .fs-fields .fs-radio-custom .icon-essence::after,
 .fs-fields .fs-radio-custom .icon-diesel::after { width: 70%; }
 
@@ -83,15 +110,20 @@ div .fs-numbers {
 .fs-expenses {
 	text-align: center;
 	font-size: 1.5em;
+	width: 30%;
 	padding: 10px 0 0;
 	position: absolute;
-		bottom: 0;
-		left: 0;
+		top: 150px;
+		left: auto;
 		right: 0;
 }
 .my-expenses {
+	color: #B0F0F9;
+	background-color: #3D4348;
 	font-size: 35px;
 	font-weight: bold;
+	margin: 0;
+	padding: 80px 0;
 }
 .fs-expenses a {
 	display: block;
@@ -240,7 +272,8 @@ input[type='range']::-ms-thumb {
 .fs-form {
 	position: relative;
 	text-align: left;
-	font-size: 2.5em;
+	font-size: 2em;
+	padding: 0 20px 0 1em;
 }
 
 .no-js .fs-form {
@@ -250,7 +283,7 @@ input[type='range']::-ms-thumb {
 /* Views (fullscreen and overview)*/
 .fs-form-full {
 	top: 32%;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 	width: 70%;
 }
 
@@ -457,7 +490,7 @@ button.fs-continue,
 	border: none;
 	border-bottom: 2px solid rgba(0,0,0,0.2);
 	background-color: transparent;
-	color: #fffed8;
+	color: #46A0AD;
 	text-overflow: ellipsis;
 	font-weight: bold;
 	font-size: 1em;
@@ -629,8 +662,9 @@ button.fs-continue,
 
 .fs-fields input.fs-mark {
 	padding-left: 1em;
+	padding-right: 10px;
 	background-image: url(../img/icons/euro.png);
-	background-position: 0% 0.15em;
+	background-position: 100% 0.15em;
 	background-size: auto 75%;
 	background-repeat: no-repeat;
 }
@@ -671,55 +705,75 @@ button.fs-continue,
 /* Dot navigation */
 .fs-nav-dots {
 	position: absolute;
-	top: 50%;
-	right: 60px;
-	left: auto;
-	-webkit-transform: translateY(-50%);
-	transform: translateY(-50%);
+	top: 150px;
+	right: auto;
+	left: 20px;
+	/*-webkit-transform: translateX(-50%);*/
+	/*transform: translateX(-50%);*/
 }
 
 .fs-nav-dots button {
 	position: relative;
-	display: block;
-	padding: 0;
-	margin: 16px 0;
-	width: 16px;
-	height: 16px;
-	border-radius: 50%;
-	background: transparent;
-	-webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;
-	transition: transform 0.3s ease, opacity 0.3s ease;
+	display: inline-block;
+	padding: 0 12px 0 22px;
+	/*margin: 16px 0;*/
+	width: 54px;
+	height: 24px;
+	text-align: center;
+	color: white;
+	font-size: 20px;
+	/*border-radius: 50%;*/
+	background-color: rgba(0,0,0, .8);
+	/*-webkit-transition: -webkit-transform 0.3s ease, opacity 0.3s ease;*/
+	/*transition: transform 0.3s ease, opacity 0.3s ease;*/
 }
 
-.fs-nav-dots button::before,
+/*.fs-nav-dots button::before,*/
 .fs-nav-dots button::after {
 	position: absolute;
 	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	border-radius: 50%;
-	background-color: rgba(0,0,0,0.8);
+	left: 100%;
+	width: 24px;
+	height: 24px;
+	z-index: 2;
+	/*border-radius: 50%;*/
+	background-color: transparent;
 	content: '';
-	text-indent: 0;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
+	/*text-indent: 0;*/
+	/*-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;*/
+	width: 0;
+	height: 0;
+	border-top: 12px solid transparent;
+	border-bottom: 12px solid transparent;
+	border-left: 12px solid rgba(0,0,0,.5);
 }
 
 .fs-nav-dots button::after {
-	background-color: rgba(0,0,0,0.4);
-	-webkit-transform: perspective(1000px) rotate3d(0,1,0,180deg);
-	transform: perspective(1000px) rotate3d(0,1,0,180deg);
+	border-left: 12px solid #333;
+	/*background-color: rgba(0,0,0,0.4);*/
+	/*-webkit-transform: perspective(1000px) rotate3d(0,1,0,180deg);
+	transform: perspective(1000px) rotate3d(0,1,0,180deg);*/
 }
 
+.fs-nav-dots button[disabled]::after {
+	border-left: 12px solid transparent;
+	pointer-events: none;
+}
+
+.fs-nav-dots button.fs-dot-current::after {
+	border-left: 12px solid #46A0AD;
+	/*-webkit-transform: perspective(1000px) rotate3d(0,1,0,180deg);
+	transform: perspective(1000px) rotate3d(0,1,0,180deg);*/
+}
+
+.fs-nav-dots button:hover,
 .fs-nav-dots button.fs-dot-current {
-	-webkit-transform: perspective(1000px) rotate3d(0,1,0,180deg);
-	transform: perspective(1000px) rotate3d(0,1,0,180deg);
+	background: #46A0AD;
 }
 
-.fs-nav-dots button:hover::before,
-.fs-nav-dots button.fs-dot-current::before {
-	background: #46A0AD;
+.fs-nav-dots button:hover::after {
+	border-left: 12px solid #46A0AD;
 }
 
 /* Progress bar */
@@ -1026,8 +1080,7 @@ input[type=text]::-ms-clear {
 		top: 6em;
 		right: 2em;
 		left: 0;
-		padding: 0 3.75em 0 1em;
-		width: auto;
+		/*width: ;*/
 		font-size: 2em;
 	}
 
@@ -1101,5 +1154,13 @@ input[type=text]::-ms-clear {
 	.logo-rci {
 		margin: -10px 0;
 		max-width: 115px;
+	}
+
+	.fs-expenses {
+		top: 66px;
+	}
+
+	.fs-nav-dots {
+		top: 75px;
 	}
 }
