@@ -9,18 +9,22 @@ body {
 }
 
 h1, h2, h3, .h1, .h2, .h3 {
-  color: #46A0AD;
+  /*color: #46A0AD;*/
 }
 h1 {
   font-weight: bold;
   font-size: 32px;
   margin: 0;
+  color: #46A0AD;
 }
 .h1 {
   padding-bottom: 20px;
 }
 h2 {
   margin-top: 0;
+}
+.h3 {
+  margin: 0;
 }
 
 .fs-title .new-simu {
@@ -89,22 +93,6 @@ div .fs-numbers {
   margin-top: 140px;
 }
 
-@media screen and (max-width: 52.5em) {
-  .fs-title {
-    padding: 20px;
-  }
-  .solutions-container {
-    margin-top: 100px;
-  }
-  .solutions-avatar img {
-    border-radius: 50%;
-    max-width: 60px;
-  }
-  .logo-rci {
-    margin: -10px 0;
-    max-width: 115px;
-  }
-}
 
 .footer-links {
   text-align: center;
@@ -128,5 +116,47 @@ p.footer-links a:hover {
 }
 .logo-rci {
   margin: -10px 0;
-  max-width: 115px;
+  max-width: 200px;
+}
+
+.solutions-money {
+  float: right;
+  padding: 5px 10px;
+  border: 3px solid #46A0AD;
+  color: #46A0AD;
+  font-size: 28px;
+}
+
+.solutions-cta {
+  float: right;
+  padding: 0.6em 1.5em;
+  border-radius: 0;
+  font-weight: 700;
+  color: #B0F0F9;
+  background: #000;
+}
+.solutions-cta:hover {
+  color: #fff;
+}
+
+.solutions-split {
+  border-right: 2px solid #46A0AD;
+  margin-bottom: 15px;
+}
+
+@media screen and (max-width: 52.5em) {
+  .fs-title {
+    padding: 20px;
+  }
+  .solutions-container {
+    margin-top: 100px;
+  }
+  .solutions-avatar img {
+    border-radius: 50%;
+    max-width: 60px;
+  }
+  .logo-rci {
+    margin: -10px 0;
+    max-width: 115px;
+  }
 }
