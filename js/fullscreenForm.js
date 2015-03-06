@@ -603,7 +603,7 @@
 		if (!isShown) {
 			classie.add(expensesEl, 'fs-show');
 		}
-		document.getElementById('expenses').innerHTML = expenses;
+		document.getElementById('expenses').innerHTML = expenses + '&euro;';
 		// Send event to GA
 		// ga('send', 'event', 'rci', 'calculate', 'L\'utilisateur calcul ses frais', expenses);
 	}
