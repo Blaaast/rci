@@ -248,8 +248,9 @@
 			document.querySelector('#volume').innerHTML = this.value;
 		});
 		// init range slider
-		document.getElementById('q4').addEventListener('change', function() {
+		document.getElementById('q4').addEventListener('mouseup', function() {
 			// Check if a condition is fullfiled before moving to the next field
+			console.log('Mouseup');
 			self.store.km = parseInt(this.value, 10);
 			self._calculateExpenses();
 			self.ctrlContinue.click();
