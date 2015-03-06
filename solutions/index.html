@@ -25,7 +25,7 @@
 
       <div class="row rci-example">
         <div class="col-md-12">
-          <h1>Tes frais s’élèvent à 181€ par mois ! Mais des solutions existent pour réduire tes frais voiture</h1>
+          <h1 id="my-expenses">Des solutions existent pour réduire tes frais voiture</h1>
         </div>
       </div>
 
@@ -176,13 +176,15 @@
       (function() {
         var query = (window.location.search || '?').substr(1),
             map   = {},
-            expenses;
+            expenses, expText;
         query.replace(/([^&=]+)=?([^&]*)(?:&+|$)/g, function(match, key, value) {
             (map[key] = map[key] || []).push(value);
         });
-        expenses = map.expenses ? map.expenses[0] + '&euro;' : 'Non calculés';
-
-        document.getElementById('my-expenses').innerHTML = expenses;
+        if (map.expenses) {
+          expenses = map.expenses ? map.expenses[0] + '&euro;' : 'Non calculés';
+          expText = 'Tes frais s’élèvent à ' + expenses + ' par mois ! Mais des solutions existent pour réduire tes frais voiture';
+          document.getElementById('my-expenses').innerHTML = expText;
+        }
       })();
     </script>
 
