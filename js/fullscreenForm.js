@@ -131,7 +131,7 @@
 
 		// Link google events with the "see solutions button"
 		document.getElementById('link-to-solutions').addEventListener('click', function(e) {
-			var eventName = this.pageName + ':solutions';
+			var eventName = self.pageName + ':solutions';
 			ga('send', 'event', 'rci', eventName);
 			this.href += '?expenses=' + (self.store.expenses || 0);
 		});
@@ -230,14 +230,14 @@
 		// Tracking
 		document.getElementById('discoverAdvices').addEventListener('click', function() {
 			// Check if a condition is fullfiled before moving to the next field
-			var eventName = this.pageName + ':conseils';
+			var eventName = self.pageName + ':conseils';
 			ga('send', 'event', 'rci', eventName);
 		});
 
 		// show initial button
 		document.getElementById('startButton').addEventListener('click', function() {
 			// Check if a condition is fullfiled before moving to the next field
-			var eventName = this.pageName + ':j\'essaye';
+			var eventName = self.pageName + ':j\'essaye';
 			ga('send', 'event', 'rci', eventName);
 			self.ctrlContinue.click();
 		});
