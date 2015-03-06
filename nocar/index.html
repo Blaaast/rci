@@ -22,9 +22,9 @@
       <div class="fs-form-wrap" id="fs-form-wrap">
 
         <div class="fs-expenses ">
-          <p class="my-expenses fs-show">Mes frais: <br><span id="expenses">...</span>&euro;</p>
+          <p class="my-expenses fs-show">Mes frais mensuels: <br><span id="expenses">calcul en cours</span>&euro;</p>
           <p class="footer-links">
-            <a class="rdv-concession" href="../conseils/index.html">
+            <a id="discoverAdvices" class="rdv-concession" href="../conseils/index.html">
               Je découvre des conseils pour acheter ma voiture <i class="fa fa-arrow-circle-right"></i>
             </a>
           </p>
@@ -37,7 +37,7 @@
         </div>
 
         <div class="fs-title">
-          <a class="new-simu" href="">Nouvelle simulation</a>
+          <!-- <a class="new-simu" href="">Nouvelle simulation</a> -->
           <h1>
             <img class="logo-rci" src="../img/logo.png">
             <!-- Je calcule mes frais -->
@@ -61,7 +61,7 @@
               <div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
 
                 <span><input id="q1a" name="q1" type="radio" value="citadine"/><label for="q1a" class="radio-mobile icon-citadine">Citadine</label></span>
-                <span><input id="q1b" name="q1" type="radio" value="compact"/><label for="q1b" class="radio-conversion icon-compact">Compact</label></span>
+                <span><input id="q1b" name="q1" type="radio" value="compact"/><label for="q1b" class="radio-conversion icon-compact">Compacte</label></span>
                 <span><input id="q1c" name="q1" type="radio" value="monospace"/><label for="q1c" class="radio-social icon-monospace">Monospace</label></span>
 
               </div>
@@ -82,7 +82,7 @@
 
               <div class="fs-radio-group fs-radio-custom clearfix fs-anim-lower">
 
-                <span><input id="q3a" name="q3" type="radio" value="route"/><label for="q3a" class="radio-type icon-route">Route</label></span>
+                <span><input id="q3a" name="q3" type="radio" value="route"/><label for="q3a" class="radio-type icon-route">Campagne</label></span>
                 <span><input id="q3b" name="q3" type="radio" value="mixte"/><label for="q3b" class="radio-type icon-mixte">Mixte</label></span>
                 <span><input id="q3c" name="q3" type="radio" value="ville"/><label for="q3c" class="radio-type icon-ville">Ville</label></span>
 
@@ -99,7 +99,7 @@
             </li>
 
             <li data-input-trigger>
-              <label class="fs-field-label fs-anim-upper" for="q5">Autres frais à prendre en compte:</label>
+              <label class="fs-field-label fs-anim-upper" for="q5">Autres frais mensuels à prendre en compte:</label>
 
               <div class=" clearfix fs-anim-lower">
 
@@ -143,6 +143,7 @@
         } );
 
         new FForm( formWrap, {
+          pageName: 'nocar',
           onReview : function() {
             classie.add( document.body, 'overview' ); // for demo purposes only
           }

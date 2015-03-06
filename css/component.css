@@ -16,6 +16,9 @@ body .fs-fields > li .fs-radio-custom span {
 body .fs-fields input:focus {
 	background-color: transparent;
 }
+form.fs-form-full .fs-fields > li label[data-info]::after {
+	display: none;
+}
 /* END surcharges */
 
 .euro-mark {

@@ -93,6 +93,7 @@
 	 */
 	function FForm( el, options ) {
 		this.el = el;
+		this.pageName = options.pageName;
 		this.store = { alreadyVisited: {} };
 		this.options = extend( {}, this.options );
   		extend( this.options, options );
@@ -130,7 +131,8 @@
 
 		// Link google events with the "see solutions button"
 		document.getElementById('link-to-solutions').addEventListener('click', function(e) {
-			ga('send', 'event', 'step', 'solutions');
+			var eventName = this.pageName + ':solutions';
+			ga('send', 'event', 'rci', eventName);
 			this.href += '?expenses=' + (self.store.expenses || 0);
 		});
 
@@ -225,11 +227,20 @@
 			self._nextField();
 		} );
 
-		// show initial button
-		document.getElementById('startButton').addEventListener( 'click', function() {
+		// Tracking
+		document.getElementById('discoverAdvices').addEventListener('click', function() {
 			// Check if a condition is fullfiled before moving to the next field
+			var eventName = this.pageName + ':conseils';
+			ga('send', 'event', 'rci', eventName);
+		});
+
+		// show initial button
+		document.getElementById('startButton').addEventListener('click', function() {
+			// Check if a condition is fullfiled before moving to the next field
+			var eventName = this.pageName + ':j\'essaye';
+			ga('send', 'event', 'rci', eventName);
 			self.ctrlContinue.click();
-		} );
+		});
 
 		// init range slider
 		document.getElementById('q4').addEventListener('input', function() {
@@ -572,7 +583,7 @@
 		}
 
 		// Send event to GA
-		ga('send', 'event', 'step', 'next', 'Next step' + substrId);
+		// ga('send', 'event', 'rci', 'next', 'Next step' + substrId);
 		// If no condition are met, move on to the next field
 		this._nextField();
 	}
@@ -594,7 +605,7 @@
 		}
 		document.getElementById('expenses').innerHTML = expenses;
 		// Send event to GA
-		ga('send', 'event', 'step', 'calculate', 'L\'utilisateur calcul ses frais', expenses);
+		// ga('send', 'event', 'rci', 'calculate', 'L\'utilisateur calcul ses frais', expenses);
 	}
 
 	// add to global namespace

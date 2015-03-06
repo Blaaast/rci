@@ -25,8 +25,7 @@
 
       <div class="row rci-example">
         <div class="col-md-12">
-          <h1>Des solutions existent pour réduire tes frais voiture</h1>
-          <h2>Mes frais: <span id="my-expenses"></span></h2>
+          <h1>Tes frais s’élèvent à 181€ par mois ! Mais des solutions existent pour réduire tes frais voiture</h1>
         </div>
       </div>
 
@@ -71,7 +70,7 @@
 
         </div>
 
-        <a href="../custom/index.html" id="startButton" class="solutions-cta">Toi aussi découvre tes solutions personnalisées <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="../custom/index.html" id="link-to-final-1" class="solutions-cta">Toi aussi découvre tes solutions personnalisées <i class="fa fa-arrow-circle-right"></i></a>
 
       </div>
 
@@ -118,7 +117,7 @@
 
         </div>
 
-        <a href="../custom/index.html" id="startButton" class="solutions-cta">Toi aussi découvre tes solutions personnalisées <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="../custom/index.html" id="link-to-final-2" class="solutions-cta">Toi aussi découvre tes solutions personnalisées <i class="fa fa-arrow-circle-right"></i></a>
 
       </div>
 
@@ -167,7 +166,7 @@
 
         </div>
 
-        <a href="../custom/index.html" id="startButton" class="solutions-cta">Toi aussi découvre tes solutions personnalisées <i class="fa fa-arrow-circle-right"></i></a>
+        <a href="../custom/index.html" id="link-to-final-3" class="solutions-cta">Toi aussi découvre tes solutions personnalisées <i class="fa fa-arrow-circle-right"></i></a>
 
       </div>
 
@@ -197,6 +196,22 @@
       ga('send', 'pageview', {
         'title': 'Solutions page'
       });
+
+      (function () {
+        // Link google events with the "see solutions button"
+        document.getElementById('link-to-final-1').addEventListener('click', function(e) {
+          var eventName = 'conseilsPage:solutions';
+          ga('send', 'event', 'rci', eventName);
+        });
+        document.getElementById('link-to-final-2').addEventListener('click', function(e) {
+          var eventName = 'conseilsPage:solutions';
+          ga('send', 'event', 'rci', eventName);
+        });
+        document.getElementById('link-to-final-3').addEventListener('click', function(e) {
+          var eventName = 'conseilsPage:solutions';
+          ga('send', 'event', 'rci', eventName);
+        });
+      }());
 
     </script>
 
