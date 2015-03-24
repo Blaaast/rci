@@ -120,7 +120,8 @@ p.footer-links a:hover {
 }
 
 .solutions-money {
-  float: right;
+  float: left;
+  text-align: center;
   padding: 5px 10px;
   border: 3px solid #46A0AD;
   color: #46A0AD;
@@ -140,7 +141,6 @@ p.footer-links a:hover {
 }
 
 .solutions-split {
-  border-right: 2px solid #46A0AD;
   margin-bottom: 15px;
 }
 
